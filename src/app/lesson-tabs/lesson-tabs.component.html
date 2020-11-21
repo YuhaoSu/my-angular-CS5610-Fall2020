@@ -1,0 +1,17 @@
+<!--<p>lesson-tabs works!</p>-->
+
+<div class="container">
+  <h3>Lessons</h3>
+  <ul class="nav nav-tabs wbdv-lesson-tabs">
+    <li
+      *ngFor="let lesson of lessons"
+      [ngClass]="{'list-group-item-success': lesson._id === lessonId}"
+      class="nav-item active">
+      <a routerLink="/table/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lesson._id}}/topics"
+         class="nav-link">
+        {{lesson.title}}
+      </a>
+    </li>
+  </ul>
+
+</div>
