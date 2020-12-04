@@ -1,0 +1,51 @@
+<h4>
+  {{question.question}}
+  <div [ngClass]="getcustomCss3(answer, question.correct)"></div>
+</h4>
+
+
+
+<div class="container">
+<div class="container">
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      [ngClass]="getcustomCss1(selectedOption, 'true', answer, question.correct)"
+      (click)="selectChoice('true')">
+      <input type="radio"
+             value = "true"
+             [(ngModel)]="answer"
+             name="{{question._id}}"
+      />
+      true
+      <div [ngClass]="getcustomCss2(selectedOption, 'true', answer, question.correct)"></div>
+    </li>
+
+    <li
+      class="list-group-item"
+      [ngClass]="getcustomCss1(selectedOption, 'false', answer, question.correct)"
+      (click)="selectChoice('false')">
+      <input type="radio"
+             value = "false"
+             [(ngModel)]="answer"
+             name="{{question._id}}"/>
+      false
+      <div [ngClass]="getcustomCss2(selectedOption, 'false', answer, question.correct)"></div>
+    </li>
+  </ul>
+</div>
+<br/>
+Your answer: {{answer}}
+  <br/>
+  <button
+    class="btn btn-success"
+    (click)="changeGrading()">
+    grade
+  </button>
+</div>
+
+<!--<br/>-->
+<!--Correct answer: {{question.correct}}-->
+<!--<br/>-->
+<!--<span [hidden]="answer !== question.correct">Yay!</span>-->
+<!--<span [hidden]="answer === question.correct">Oops</span>-->
